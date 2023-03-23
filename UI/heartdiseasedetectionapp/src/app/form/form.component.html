@@ -1,0 +1,360 @@
+<div class="card mx-auto col-12 col-md-6 col-lg-6">
+  <div class="card-header">
+    <h2 style="text-align: center;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+      HEART DISEASE PREDICTOR
+    </h2>
+  </div>
+  <div class="container">
+    <div class="card-body">
+      <form class="form-floating" ngNativeValidate>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <label for="Age" class="form-label" style="font-weight: bold"
+            >Age <span class="mandatory-asterisk">*</span> </label
+          >
+          <input
+            type="number"
+            step="any"
+            name="age"
+            class="form-control"
+            id="Age"
+            placeholder="Age" [(ngModel)]="form.age"
+            required
+          />
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <label for="trestbps" class="form-label" style="font-weight: bold"
+            >Resting Blood Pressure <span class="mandatory-asterisk">*</span> </label
+          >
+          <input
+            type="number"
+            step="any"
+            name="trestbps"
+            class="form-control"
+            id="trestbps"
+            placeholder="RestBp (mm Hg)"
+            [(ngModel)]="form.trestbps"
+            required
+          />
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <label for="chol" class="form-label" style="font-weight: bold"
+            >Cholestoral <span class="mandatory-asterisk">*</span> </label
+          >
+          <input
+            type="number"
+            step="any"
+            name="chol"
+            class="form-control"
+            id="chol"
+            placeholder="Cholestoral (mm/dl)"
+            [(ngModel)]="form.chol"
+            required
+          />
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <label for="thalach" class="form-label" style="font-weight: bold"
+            >Maximum Heart Rate <span class="mandatory-asterisk">*</span> </label
+          >
+          <input
+            type="number"
+            step="any"
+            name="thalach"
+            class="form-control"
+            id="thalach"
+            placeholder="maximum heart rate"
+            [(ngModel)]="form.thalach"
+            required
+          />
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <label for="oldpeak" class="form-label" style="font-weight: bold"
+            >Cardiac Stress Test <span class="mandatory-asterisk">*</span> </label
+          >
+          <input
+            type="number"
+            step="any"
+            name="oldpeak"
+            class="form-control"
+            id="oldpeak"
+            placeholder="Cardiac stress test"
+            [(ngModel)]="form.oldpeak"
+            required
+          />
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <div class="mb-2">
+            <label style="font-weight: bold">Gender <span class="mandatory-asterisk">*</span></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Gender"
+              id="Male"
+              value="Male"
+              [(ngModel)]="form.sex"
+              required
+            />
+            <label class="form-check-label" for="Male"> Male </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Gender"
+              id="Female"
+              value="Female"
+              [(ngModel)]="form.sex"
+              required
+            />
+            <label class="form-check-label" for="Female"> Female </label>
+          </div>
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <div class="mb-2">
+            <label style="font-weight: bold">Chest Pain <span class="mandatory-asterisk">*</span></label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="cp"
+              id="ta"
+              value="Typical Angina"
+              [(ngModel)]="form.cp"
+              required
+            />
+            <label class="form-check-label" for="ta"> Typical Angina </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="cp" id="aa" value="Atypical Angina" [(ngModel)]="form.cp" required/>
+            <label class="form-check-label" for="aa"> Atypical Angina </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="cp" id="np" value="Non-anginal pain" [(ngModel)]="form.cp"  required/>
+            <label class="form-check-label" for="np"> Non-anginal pain </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="cp" id="as" value="Asymptomatic" [(ngModel)]="form.cp"  required/>
+            <label class="form-check-label" for="as"> Asymptomatic </label>
+          </div>
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <div class="mb-2">
+            <label style="font-weight: bold"
+              >Fasting Blood Sugar(more than 120 mg/dl) <span class="mandatory-asterisk">*</span></label
+            >
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="fbs"
+              id="Yes"
+              value="Yes"
+              [(ngModel)]="form.fbs"
+              required
+            />
+            <label class="form-check-label" for="Yes"> Yes </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="fbs" id="No" value="No" [(ngModel)]="form.fbs"  required/>
+            <label class="form-check-label" for="No"> No </label>
+          </div>
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <div class="mb-2">
+            <label style="font-weight: bold"
+              >Resting electrocardiographic <span class="mandatory-asterisk">*</span></label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="restecg"
+              id="normal"
+              value="Normal"
+              [(ngModel)]="form.restecg"
+              required
+            />
+            <label class="form-check-label" for="normal"> Normal </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="restecg"
+              id="hwa"
+              value="Having ST-T Wave Abnormality"
+              [(ngModel)]="form.restecg"
+              required
+            />
+            <label class="form-check-label" for="hwa">
+              Having ST-T Wave Abnormality
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="restecg"
+              id="sp"
+              value="Showing probable or Definite left ventricular hypertrophy"
+              [(ngModel)]="form.restecg"
+              required
+            />
+            <label class="form-check-label" for="sp">
+              Showing probable or Definite left ventricular hypertrophy
+            </label>
+          </div>
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <div class="mb-2">
+            <label style="font-weight: bold">Exercise Induced Angina <span class="mandatory-asterisk">*</span></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exang"
+              id="Yes"
+              value="Yes"
+              [(ngModel)]="form.exang"
+              required
+            />
+            <label class="form-check-label" for="Yes"> Yes </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="exang" id="No" value="No" [(ngModel)]="form.exang"  required/>
+            <label class="form-check-label" for="No"> No </label>
+          </div>
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <div class="mb-2">
+            <label style="font-weight: bold">Slope <span class="mandatory-asterisk">*</span></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Slope"
+              id="Upsloping"
+              value="Upsloping"
+              [(ngModel)]="form.Slope"
+              required
+            />
+            <label class="form-check-label" for="Upsloping"> Upsloping </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Slope"
+              id="flat"
+              value="Flat"
+              [(ngModel)]="form.Slope"
+              required
+            />
+            <label class="form-check-label" for="flat"> Flat </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="Slope"
+              id="downsloping"
+              value="Downsloping"
+              [(ngModel)]="form.Slope"
+              required
+            />
+            <label class="form-check-label" for="downsloping">
+              Downsloping
+            </label>
+          </div>
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <div class="mb-2">
+            <label style="font-weight: bold"
+              >Number of Major Vessels Colored by Flourosopy <span class="mandatory-asterisk">*</span></label
+            >
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="ca"
+              id="zero"
+              value="Zero"
+              [(ngModel)]="form.ca"
+              required
+              
+            />
+            <label class="form-check-label" for="zero"> Zero </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="ca" id="one" value="One" [(ngModel)]="form.ca"  required/>
+            <label class="form-check-label" for="one"> One </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="ca" id="two" value="Two" [(ngModel)]="form.ca" required/>
+            <label class="form-check-label" for="two"> Two </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="ca" id="three" value="Three" [(ngModel)]="form.ca" required/>
+            <label class="form-check-label" for="three"> Three </label>
+          </div>
+        </div>
+        <div class="mb-2 col-lg-6 mx-auto">
+          <div class="mb-2">
+            <label style="font-weight: bold"
+              >Exercise thallium scintigraphic defects <span class="mandatory-asterisk">*</span></label
+            >
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="thal"
+              id="normal"
+              value="Normal"
+              [(ngModel)]="form.thal"
+              required
+            />
+            <label class="form-check-label" for="normal"> Normal </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="thal"
+              id="fixed"
+              value="Fixed defect"
+              [(ngModel)]="form.thal"
+              required
+            />
+            <label class="form-check-label" for="fixed"> Fixed defect </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="thal"
+              id="reversible"
+              value="Reversible defect"
+              [(ngModel)]="form.thal"
+              required
+            />
+            <label class="form-check-label" for="reversible">
+              Reversible defect
+            </label>
+          </div>
+        </div>
+        <div class="mt-4 col-lg-6 mx-auto">
+            <button class="btn btn-primary " type="submit" (click)="onclick()">Predict</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
