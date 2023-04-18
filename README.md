@@ -56,8 +56,8 @@
 <p>The machine learning model used in this application was trained on the Cleveland Heart Disease dataset, which can be found at the <a href="https://archive.ics.uci.edu/ml/datasets/heart+Disease">UCI Machine Learning Repository</a>.</p>
 <p>The dataset consists of 303 instances, each with 14 input attributes and a binary output indicating the presence or absence of heart disease.</p>
 
-<h2>Credits</h>
-<p>We would like to thank our project guide <b> Dr. Subhadarshini Mohanty </b>  for their constant support and guidance throughout the project.</p>
+<h2>Credits</h2>
+<p> We would like to thank our project guide <b> Dr. Subhadarshini Mohanty </b>  for their constant support and guidance throughout the project.</p>
 
 <h2>License</h2>
 <p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
