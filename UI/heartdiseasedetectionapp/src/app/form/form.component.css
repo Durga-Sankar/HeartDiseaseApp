@@ -22,4 +22,9 @@ input{
     color: red;
 }
 
+.img-fluid{
+    height: 0.75rem;
+    max-width: 0.75rem;
+}
+
 
