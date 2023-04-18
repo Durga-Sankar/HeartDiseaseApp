@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormService } from './dataservice/form.service';
-import { apiformat } from './form.constants';
+import { apiformat, popupMessage } from './form.constants';
 import { values } from './form.constants';
 import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
@@ -16,6 +16,7 @@ constructor(private service:FormService, private router:Router){}
   
 format:any 
 output:string=''
+infomessage:any
 form : any={
 age:'',
 trestbps:'',
@@ -33,6 +34,7 @@ thal:''
 }
 ngOnInit(): void {
 this.format=apiformat
+this.infomessage=popupMessage
 // this.resetvalues()
 }
 // resetvalues(){
@@ -48,20 +50,20 @@ preprocessdata(){
   this.format.chol=this.form['chol']
   this.format.thalach=this.form['thalach']
   this.format.oldpeak=this.form['oldpeak']
-  this.format['sex_0']=values.sex[this.form.sex]
+  this.format['sex_1']=values.sex[this.form.sex]
   
-  this.format['cp_0']=values.cp[this.form.cp][0]
   this.format['cp_1']=values.cp[this.form.cp][1]
-  this.format['cp_2']=values.cp[this.form.cp][2]  
+  this.format['cp_2']=values.cp[this.form.cp][2]
+  this.format['cp_3']=values.cp[this.form.cp][3]  
 
-  this.format['fbs_0']=values.fbs[this.form.fbs]
+  this.format['fbs_1']=values.fbs[this.form.fbs]
 
-  this.format['restecg_0']=values.restecg[this.form.restecg][0]
   this.format['restecg_1']=values.restecg[this.form.restecg][1]
+  this.format['restecg_2']=values.restecg[this.form.restecg][2]
   
-  this.format['exang_0']=values.exang[this.form.exang]
-  this.format['Slope_0']=values.Slope[this.form.Slope][0]
+  this.format['exang_1']=values.exang[this.form.exang]
   this.format['Slope_1']=values.Slope[this.form.Slope][1]
+  this.format['Slope_2']=values.Slope[this.form.Slope][2]
 
   this.format['ca_0']=values.ca[this.form.ca][0]
   this.format['ca_1']=values.ca[this.form.ca][1]

@@ -35,3 +35,18 @@ export const values:any={
     thal:{'Normal':[1,0,0],'Fixed defect':[0,1,0],'Reversible defect':[0,0,1]}
 }
 
+export const popupMessage={
+    age:"",
+    trestbps:"Resting Blood Pressure or the Normal Blood pressure when a person is at rest.",
+    chol:"serum cholestoral in mg/dl",
+    thalach:"maximum heart rate achieved",
+    oldpeak:" ST depression induced by exercise relative to rest",
+    sex:"",
+    cp:"chest pain",
+    fbs:"fasting blood sugar > 120 mg/dl",
+    restecg:"resting electrocardiographic results",
+    exang:"exercise induced angina",
+    Slope:"the slope of the peak exercise ST segment",
+    ca:"number of major vessels (0-3) colored by flourosopy",
+    thal:"thal: 0 = normal; 1 = fixed defect; 2 = reversable defect"
+}
