@@ -9,16 +9,15 @@ import { FormComponent } from './form/form.component';
 import {HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { NoheartdiseasepageComponent } from './noheartdiseasepage/noheartdiseasepage.component';
-import { ConsultheartdiseasepageComponent } from './consultheartdiseasepage/consultheartdiseasepage.component';
+import { NoHeartDiseaseComponent } from './header/no-heart-disease/no-heart-disease.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FormComponent,
-    NoheartdiseasepageComponent,
-    ConsultheartdiseasepageComponent
+    NoHeartDiseaseComponent,
+ 
   ],
   imports: [
     BrowserModule,
