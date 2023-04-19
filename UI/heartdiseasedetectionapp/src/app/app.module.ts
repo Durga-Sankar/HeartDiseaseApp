@@ -6,10 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './form/form.component';
-import {HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import { NoHeartDiseaseComponent } from './header/no-heart-disease/no-heart-disease.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+
+import { NoHeartDiseaseComponent } from './no-heart-disease/no-heart-disease.component';
+import { HeartDiseaseDetectedComponent } from './heart-disease-detected/heart-disease-detected.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +21,7 @@ import { NoHeartDiseaseComponent } from './header/no-heart-disease/no-heart-dise
     HeaderComponent,
     FormComponent,
     NoHeartDiseaseComponent,
+    HeartDiseaseDetectedComponent
  
   ],
   imports: [
@@ -25,7 +30,9 @@ import { NoHeartDiseaseComponent } from './header/no-heart-disease/no-heart-dise
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

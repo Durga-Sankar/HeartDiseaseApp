@@ -1,0 +1,46 @@
+<!-- <div class="container" [@fadeIn]>
+  <h2>No Heart Disease Detected</h2>
+  <p>Here are some tips and food recommendations to maintain a healthy heart:</p>
+  <mat-list>
+    <h3>Health Tips:</h3>
+    <mat-list-item *ngFor="let tip of healthTips">{{tip}}</mat-list-item>
+  </mat-list>
+  <mat-list>
+    <h3>Food Recommendations:</h3>
+    <mat-list-item *ngFor="let recommendation of foodRecommendations">{{recommendation}}</mat-list-item>
+  </mat-list>
+</div> -->
+
+<div class="container">
+    <div class="card">
+      <h1 class="card-header">No Heart Disease Detected</h1>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="image-wrapper">
+              <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg" alt="Healthy heart">
+            </div>
+            <p class="card-text">Congratulations! Your heart is in good shape. Keep up the good work by eating a balanced diet, staying active, and getting regular check-ups.</p>
+            <div class="button-wrapper">
+              <button class="button">Share on social media</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="health-tips-wrapper">
+              <h3 class="health-tips-header">Health Tips:</h3>
+              <mat-list>
+                <mat-list-item class="health-tip" *ngFor="let tip of healthTips">{{tip}}</mat-list-item>
+              </mat-list>
+            </div>
+            <div class="food-recommendations-wrapper">
+              <h3 class="food-recommendations-header">Food Recommendations:</h3>
+              <mat-list>
+                <mat-list-item class="food-recommendation" *ngFor="let recommendation of foodRecommendations">{{recommendation}}</mat-list-item>
+              </mat-list>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
