@@ -11,17 +11,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
 
 import { NoHeartDiseaseComponent } from './no-heart-disease/no-heart-disease.component';
 import { HeartDiseaseDetectedComponent } from './heart-disease-detected/heart-disease-detected.component';
-
+import { ChatbotComponent } from './chatbot/chatbot.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FormComponent,
     NoHeartDiseaseComponent,
-    HeartDiseaseDetectedComponent
+    HeartDiseaseDetectedComponent,
+    ChatbotComponent
  
   ],
   imports: [
@@ -32,7 +37,9 @@ import { HeartDiseaseDetectedComponent } from './heart-disease-detected/heart-di
     BrowserAnimationsModule,
     MatTooltipModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
