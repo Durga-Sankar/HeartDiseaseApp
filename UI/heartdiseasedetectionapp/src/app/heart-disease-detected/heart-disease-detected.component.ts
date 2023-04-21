@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 interface Doctor {
   profile: {
@@ -27,6 +27,7 @@ interface Doctor {
   styleUrls: ['./heart-disease-detected.component.css']
 })
 export class HeartDiseaseDetectedComponent implements OnInit {
+  @Input() output = '';
   doctors: Doctor[] = [];
 
   constructor() { }

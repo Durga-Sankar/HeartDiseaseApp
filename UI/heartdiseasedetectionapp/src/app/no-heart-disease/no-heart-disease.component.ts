@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { animate, style, transition, trigger, state } from '@angular/animations';
 import { HealthTipsService } from './health-tips.service';
 
@@ -20,6 +20,8 @@ import { HealthTipsService } from './health-tips.service';
   ]
 })
 export class NoHeartDiseaseComponent {
+  @Input() output = '';
+
   healthTips: string[] = [];
   foodRecommendations: string[] = [];
 
