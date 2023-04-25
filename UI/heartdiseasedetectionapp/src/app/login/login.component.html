@@ -1,0 +1,115 @@
+<!-- <p>login works!</p> -->
+<!-- <!DOCTYPE html> -->
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<!-- <html lang="en" dir="ltr"> -->
+  <!-- <head>
+    <meta charset="UTF-8"> -->
+    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head> -->
+<body>
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="./assets/images/Blue Illustration World Heart Day Poster.png" alt="">
+        <div class="text">
+          <span class="text-1">Every new friend is a <br> new adventure</span>
+          <span class="text-2">Let's get connected</span>
+        </div>
+      </div>
+      <div class="back">
+        <img class="backImg" src="./assets/images/Blue Illustration World Heart Day Poster.png" alt="">
+        <div class="text">
+          <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+          <form  [formGroup]="LoginForm">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Enter your email" formControlName="email"  required>
+                
+              </div>
+              <span class="help-block" *ngIf="!LoginForm.get('email')?.valid&&LoginForm.get('email')?.touched">
+                <span *ngIf = "LoginForm.get('email')?.hasError('required')" style="color:red; margin-left:1rem"><small>* Field is required</small></span>
+                <span *ngIf = "LoginForm.get('email')?.hasError('email')" style="color:red; margin-left:1rem"><small>Please Enter a Valid Email Id </small></span>
+              </span>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your password" formControlName="password" minlength="4" maxlength="10" required >
+              </div>
+              <span class="help-block" *ngIf="!LoginForm.get('password')?.valid&&LoginForm.get('password')?.touched">
+                <span *ngIf = "LoginForm.get('password')?.errors?.['required']" style="color:red; margin-left:1rem"><small>* Field is required</small></span>
+                <span *ngIf = "LoginForm.get('password')?.hasError('minlength')" style="color:red; margin-left:1rem"><small>The minimum length for this field is {{LoginForm.get('password')?.errors?.['minlength'].requiredLength}}</small></span>
+                <span *ngIf = "LoginForm.get('password')?.hasError('maxlength')" style="color:red; margin-left:1rem"><small>The maximum length for this field is {{LoginForm.get('password')?.errors?.['maxlength'].requiredLength}}</small></span>
+                
+              </span>
+              <!-- <div class="text"><a href="#">Forgot password?</a></div> -->
+              <div class="button input-box">
+                <input type="submit" [disabled]="LoginForm.invalid" value="Submit" (click)="login()">
+              </div>
+              <div *ngIf="errorflag" ><p style="color:red">Login Error ! Please check your email and password</p></div>
+
+              <div class="text sign-up-text">Don't have an account? <label for="flip" (click)="ngOnInit()">Sigup now</label></div>
+            </div>
+        </form>
+      </div>
+        <div class="signup-form">
+          <div class="title">Signup</div>
+        <form action="#" [formGroup]="SignupForm">
+            <div class="input-boxes">
+              <div class="input-box form-group">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Enter your name" formControlName="name" required>
+                </div>
+              <span class="help-block" *ngIf="!SignupForm.get('name')?.valid&&SignupForm.get('name')?.touched">
+                <span *ngIf = "SignupForm.get('name')?.errors?.['required']" style="color:red; margin-left:1rem"><small>* Field is required</small></span>
+              </span>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Enter your email" formControlName="email" required>
+              </div>
+              <span class="help-block" *ngIf="!SignupForm.get('email')?.valid&&SignupForm.get('email')?.touched">
+                <span *ngIf = "SignupForm.get('email')?.hasError('required')" style="color:red; margin-left:1rem"><small>* Field is required</small></span>
+                <span *ngIf = "SignupForm.get('email')?.hasError('email')" style="color:red; margin-left:1rem"><small>Please Enter a Valid Email Id </small></span>
+            </span>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your password" formControlName="password"  minlength="4" maxlength="10" required>
+              </div>
+              <span class="help-block" *ngIf="!SignupForm.get('password')?.valid&&SignupForm.get('password')?.touched">
+                <span *ngIf = "SignupForm.get('password')?.errors?.['required']" style="color:red; margin-left:1rem"><small>* Field is required</small></span>
+                <span *ngIf = "SignupForm.get('password')?.hasError('minlength')" style="color:red; margin-left:1rem"><small>The minimum length for this field is {{SignupForm.get('password')?.errors?.['minlength'].requiredLength}}</small></span>
+                <span *ngIf = "SignupForm.get('password')?.hasError('maxlength')" style="color:red; margin-left:1rem"><small>The maximum length for this field is {{SignupForm.get('password')?.errors?.['maxlength'].requiredLength}}</small></span>
+                
+              </span>
+              <div class="button input-box">
+                <input type="submit" [disabled]="SignupForm.invalid" value="Submit" (click)="signin()">
+                <!-- <input type="submit"  value="Submit" (click)="success()"> -->
+
+              </div>
+              <div *ngIf="registerflag" ><p style="color:red">Registered Succesfully ! You Can Login Now.</p></div>
+
+              <div class="text sign-up-text">Already have an account? <label for="flip" (click)="ngOnInit()">Login now</label></div>
+            </div>
+
+      </form>
+    </div>
+    </div>
+
+
+    </div>
+  </div>
+</body>
+<!-- </html> -->
+

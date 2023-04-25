@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
 outputdata:any
 show:string=''
+Username:any
 
 
-constructor(private http :HttpClient,private route:ActivatedRoute){}
+constructor(private http :HttpClient,private route:ActivatedRoute , private router:Router){}
 ngOnInit(): void {
 
   this.outputdata=this.route.snapshot.paramMap.get('output')
+  this.Username=this.route.snapshot.paramMap.get('User')
   console.log(typeof(this.outputdata));
   
   if (this.outputdata=='1'){
@@ -24,5 +26,9 @@ ngOnInit(): void {
   else{
     this.show="No Heart Treatment Required !"
   }
+}
+
+navigate(){
+  this.router.navigate(['/home', { User:this.Username}])
 }
 }
