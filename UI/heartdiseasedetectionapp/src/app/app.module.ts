@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
+
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NoHeartDiseaseComponent } from './no-heart-disease/no-heart-disease.component';
 import { HeartDiseaseDetectedComponent } from './heart-disease-detected/heart-disease-detected.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +29,15 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     FormComponent,
     NoHeartDiseaseComponent,
     HeartDiseaseDetectedComponent,
-    ChatbotComponent
+    ChatbotComponent,
+    LoginComponent
  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatTooltipModule,

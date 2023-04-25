@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormService } from './dataservice/form.service';
 import { apiformat, popupMessage } from './form.constants';
 import { values } from './form.constants';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
@@ -12,10 +12,11 @@ import { firstValueFrom } from 'rxjs';
 })
 export class FormComponent implements OnInit{
   
-constructor(private service:FormService, private router:Router){}
+constructor(private service:FormService, private router:Router,private route:ActivatedRoute){}
   
 format:any 
 output:string=''
+Username:any
 infomessage:any
 form : any={
 age:'',
@@ -35,6 +36,7 @@ thal:''
 ngOnInit(): void {
 this.format=apiformat
 this.infomessage=popupMessage
+this.Username=this.route.snapshot.paramMap.get('User')
 // this.resetvalues()
 }
 // resetvalues(){
@@ -85,10 +87,12 @@ async onclick(){
   const response:any= await firstValueFrom(this.service.postData(this.format))
   this.output=response['1']['output'][0];
   console.log(response);
-  this.router.navigate(['/header', {output:this.output}] )
+  this.router.navigate(['/header', { User:this.Username,output:this.output}] )
  
 }
 
 
-
+logout(){
+  this.router.navigate(['/login'])
+}
 }
