@@ -1,7 +1,10 @@
 from flask import Flask,jsonify,request
+import pandas
 from flask_cors import CORS
 import joblib
-model = joblib.load("Randorm_Forest_Heart_Prediction.h5")
+
+# model = joblib.load("Randorm_Forest_Heart_Prediction.h5")
+
 param=[]
 currentuser={
     'name':'',
@@ -20,6 +23,9 @@ def hello_world():
 @app.route("/api/model" , methods=['POST'] )
 def model_param():
    param=[]
+   data = pandas.read_csv("testing (2)/testing/heart.csv")
+   data = data.drop("target",axis=1)
+   data = pandas.get_dummies(data,columns=['cp','restecg','slope','ca','thal'],drop_first=True)
    model_p={
    'age':request.json['age'],
    'trestbps':request.json['trestbps'],
@@ -47,10 +53,26 @@ def model_param():
 
     }
    param.append(model_p)
-   output=model.predict([[int(model_p['age']), int(model_p['trestbps']), int(model_p['chol']), int(model_p['thalach']), int(model_p['oldpeak']),
+   data1=[[int(model_p['age']), int(model_p['trestbps']), int(model_p['chol']), int(model_p['thalach']), int(model_p['oldpeak']),
    int(model_p['sex_1']),int(model_p['cp_1']),int(model_p['cp_2']),int(model_p['cp_3']),int(model_p['fbs_1']),int(model_p['restecg_1']),int(model_p['restecg_2']),
-   int(model_p['exang_1']),int(model_p['Slope_1']),int(model_p['Slope_2']),int(model_p['ca_0']),int(model_p['ca_1']),int(model_p['ca_2']),int(model_p['ca_3'])
-   ,int(model_p['thal_0']),int(model_p['thal_1']),int(model_p['thal_2'])]])
+    int(model_p['exang_1']),int(model_p['Slope_1']),int(model_p['Slope_2']),int(model_p['ca_0']),int(model_p['ca_1']),int(model_p['ca_2']),int(model_p['ca_3'])
+    ,int(model_p['thal_0']),int(model_p['thal_1']),int(model_p['thal_2'])]]
+   data1 = pandas.DataFrame(data1,columns=['age', 'sex', 'trestbps', 'chol', 'fbs', 'thalach', 'exang', 'oldpeak',
+       'cp_1', 'cp_2', 'cp_3', 'restecg_1', 'restecg_2', 'slope_1', 'slope_2',
+       'ca_1', 'ca_2', 'ca_3', 'ca_4', 'thal_1', 'thal_2', 'thal_3'])
+   data = pandas.concat([data,data1])
+   scaler = joblib.load('testing (2)/testing/scaler.save')
+   data=scaler.fit_transform(data)
+   req_data = data[-1]
+   model=joblib.load('')
+   output=model.predict([req_data])
+
+
+
+#    output=model.predict([[int(model_p['age']), int(model_p['trestbps']), int(model_p['chol']), int(model_p['thalach']), int(model_p['oldpeak']),
+#    int(model_p['sex_1']),int(model_p['cp_1']),int(model_p['cp_2']),int(model_p['cp_3']),int(model_p['fbs_1']),int(model_p['restecg_1']),int(model_p['restecg_2']),
+#    int(model_p['exang_1']),int(model_p['Slope_1']),int(model_p['Slope_2']),int(model_p['ca_0']),int(model_p['ca_1']),int(model_p['ca_2']),int(model_p['ca_3'])
+#    ,int(model_p['thal_0']),int(model_p['thal_1']),int(model_p['thal_2'])]])
    return jsonify({'param':param},{'output':output.tolist()})
    
 
