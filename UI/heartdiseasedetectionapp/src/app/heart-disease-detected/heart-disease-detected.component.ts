@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import * as L from "leaflet";
 
 interface Doctor {
   profile: {
@@ -29,6 +30,7 @@ interface Doctor {
 export class HeartDiseaseDetectedComponent implements OnInit {
   @Input() output = '';
   doctors: Doctor[] = [];
+  map:any
 
   constructor() { }
 
@@ -39,6 +41,7 @@ export class HeartDiseaseDetectedComponent implements OnInit {
     } else {
       alert('Geolocation is not supported by this browser.');
     }
+    this.initmap()
   }
   
 
@@ -76,4 +79,27 @@ export class HeartDiseaseDetectedComponent implements OnInit {
         console.error('Error:', error);
       });
   }
+    initmap(){
+      this.map=L.map("map",{
+        minZoom:7,
+        maxZoom:18
+      }).setView([ 20.275845,85.7760641 ],15)
+      
+      L.tileLayer('http://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}',
+      { maxZoom: 20,
+        maxNativeZoom: 17}).addTo(this.map);
+     
+var defaultIcon = L.icon({
+  iconUrl: './assets/images/marker-icon.png',
+  iconAnchor: [12,36],
+       
+});
+
+  L.marker([20.275845,85.7760641], {icon: defaultIcon}).addTo(this.map).bindPopup("OUTR College Bhubaneswar");;
+  L.circle([20.275845,85.7760641], {radius: 1300}).addTo(this.map);
+
+    }
+
+  
+
 }

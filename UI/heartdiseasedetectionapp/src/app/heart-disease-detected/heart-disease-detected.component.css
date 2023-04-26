@@ -91,6 +91,10 @@
     top: 5px;
     left: 0;
   }
+  #map{
+    margin-top: 5vh;
+    height:100vh;
+  }
   
   @media only screen and (max-width: 767px) {
     .heart-disease-detected .row {
