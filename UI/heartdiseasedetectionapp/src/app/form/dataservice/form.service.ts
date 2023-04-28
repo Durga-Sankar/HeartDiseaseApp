@@ -6,6 +6,8 @@ import {HttpClient}  from '@angular/common/http'
 })
 export class FormService {
   
+  // url:any='http://43.205.225.85:5000/api/model'
+  
   url:any='http://127.0.0.1:5000/api/model'
 
   constructor(private http:HttpClient){}
